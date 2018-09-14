@@ -1,0 +1,32 @@
+
+pragma solidity ^0.4.18;
+
+contract timeCapsule {
+   
+   struct Entry {
+       address by;
+       string message;
+       uint order;
+   }
+   
+   Entry[] entries;
+   uint entryOrder = 0;
+    //address tcapsule;
+    //String[] capsule;
+    //mapping (address => string) message;
+    //mapping (address => uint) order;
+    
+    
+    function setEntry(string submission) public {
+       entries[entryOrder].message = submission;
+       entries[entryOrder].order = entryOrder;
+       entries[entryOrder].by = msg.sender;
+       entryOrder++;
+    }
+
+    function getEntry() public view returns(string, uint) {
+            return (message[entryOrder], order[entryOrder]);
+        
+    }
+    
+}
