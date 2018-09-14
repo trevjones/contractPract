@@ -19,18 +19,18 @@ contract timeCapsule {
 /******ORIGINAL SNIPPET FUNCTIONING SMART CONTRACT EXAMPLE*******************
 pragma solidity ^0.4.18;
 
-contract timeCapsule {
+contract MyDetails {
    
-    mapping (address => string) message;
-    mapping (address => uint) order;
+    mapping (address => string) ipfsHashes;
+    mapping (address => uint) timestamp;
     
-    function setEntry(string message) public {
-       message[msg.sender] = message;
-       order[msg.sender] = now;
+    function setHash(string ipfsHash) public {
+       ipfsHashes[msg.sender] = ipfsHash;
+       timestamp[msg.sender] = now;
     }
 
-    function getEntry(address account) public view returns(string, uint) {
-      return (message[account], order[account]);
+    function getHash(address account) public view returns(string, uint) {
+      return (ipfsHashes[account], timestamp[account]);
     }
 
 }
