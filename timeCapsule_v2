@@ -1,4 +1,3 @@
-
 pragma solidity ^0.4.18;
 
 contract timeCapsule {
@@ -9,13 +8,8 @@ contract timeCapsule {
        uint order;
    }
    
-   //Entry[] entries;
    uint entryOrder = 0;
-    //address tcapsule;
-    //String[] capsule;
-    //mapping (address => string) message;
-    //mapping (address => uint) order;
-    mapping (uint => Entry) entries;
+   mapping (uint => Entry) entries;
     
     
     function setEntry(string submission) public {
@@ -26,7 +20,7 @@ contract timeCapsule {
     }
 
     function getEntry() public view returns(string, uint) {
-            return (entries[entryOrder].message, entries[entryOrder].order);
+            return (entries[entryOrder-1].message, entries[entryOrder-1].order);
         
     }
     
